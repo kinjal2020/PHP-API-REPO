@@ -21,6 +21,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
    $result= $config->insertData($name,$age,$course);
 
    $res['msg']=$result==1?"Inserted":"Failed";
+   http_response_code($result==1?201:403);
 }
 else{
     $res['msg']='Only Post method is allowed';

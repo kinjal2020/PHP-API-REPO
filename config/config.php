@@ -9,7 +9,7 @@ class Config{
     private $table_name="student";
     public $conn;
 
-
+    //connection of database
     public function __construct(){
         $this->conn=mysqli_connect($this->HOST,$this->USERNAME,$this->PASSWORD,$this->DBNAME);
 
@@ -22,7 +22,17 @@ class Config{
 
     }
 
-//insert student query into database
+
+    //get single record from database
+    public function getSingleStudent($id){
+        $query="SELECT * FROM $this->table_name WHERE id=$id";
+
+        $res=mysqli_query($this->conn,$query);
+        return $res;
+    }
+
+
+        //insert student query into database
         public function insertData($name,$age,$course){
          $query="INSERT INTO $this->table_name(name,age,course) VALUES('$name',$age,'$course')";
         $res = mysqli_query($this->conn,$query);
@@ -71,8 +81,3 @@ class Config{
 
 
 ?>
-
-
-
-
-
