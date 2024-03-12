@@ -77,6 +77,20 @@ class Config{
     return $res;
    }
 
+
+   public function registerUser($name,$password){
+    $query="INSERT INTO user(user_name,password) VALUES('$name','$password')";
+        $res = mysqli_query($this->conn,$query);
+
+        if($res){
+            // echo "Success";
+        }
+        else{
+            // echo "Error";
+        }
+        return $res;
+   }
+
 }
 
 
